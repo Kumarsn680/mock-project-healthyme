@@ -99,7 +99,7 @@ const ExercisePage = () => {
 
 
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center bg-white text-black'>
             <h1 className='text-3xl font-medium my-6'>Awesome Exercises</h1>
             <div className='flex gap-x-4'>
                 <input type='text' placeholder='Search Exercises...' className='border-2 px-2 py-2 outline-none min-w-[600px]' onChange={(event) => setName(event.target.value)} value={name}></input>

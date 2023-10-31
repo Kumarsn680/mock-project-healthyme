@@ -1,4 +1,6 @@
 "use client"
+import Footer from '@/components/main/Footer'
+import Navbar from '@/components/main/Navbar'
 import CustomSelect from '@/components/nutrition/CustomSelect'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -66,7 +68,7 @@ const NutritionPage = () => {
   }, [mealType, dietLabel])
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center bg-white text-black'>
       <h1 className='text-5xl font-semibold my-10'>Nutrition App</h1>
       <CustomSelect setMealType={setMealType} mealTypeOptions={mealTypeOptions} mealType={mealType} />
       <CustomSelect setMealType={setDietLabel} mealTypeOptions={dietLabelOptions} mealType={dietLabel} />
@@ -85,29 +87,28 @@ const NutritionPage = () => {
               visible={true}
             />
           </div>) : (
-         
-            <div className='grid grid-cols-3 gap-20 mt-10'>
-              {nutritionList.map((nutrition) => (
-                <div className='flex flex-col items-center justify-evenly  w-[400px] border shadow rounded-md p-4 flex-wrap'>
-                  <Link href={nutrition.recipe.url}>
-                    <div className='w-[300px] h-[300px] relative'>
-                      <Image src={nutrition.recipe.image} fill alt="recipe" />
-                    </div>
-                    <p className='font-medium text-center mt-2 text-xl'>{nutrition.recipe.label}</p>
-                    <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Calories : {nutrition.recipe.calories.toFixed(2)} kcal</p>
-                    <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Type : {nutrition.recipe.cuisineType}</p>
-                    <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Fat : {nutrition.recipe.totalNutrients.FAT.quantity.toFixed(2)}g</p>
-                    <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Sugar : {nutrition.recipe.totalNutrients.SUGAR.quantity.toFixed(2)}g</p>
-                  </Link>
-                </div>
-              ))}
 
-            </div>
+          <div className='grid grid-cols-3 gap-20 mt-10'>
+            {nutritionList.map((nutrition) => (
+              <div className='flex flex-col items-center justify-evenly  w-[400px] border shadow rounded-md p-4 flex-wrap'>
+                <Link href={nutrition.recipe.url}>
+                  <div className='w-[300px] h-[300px] relative'>
+                    <Image src={nutrition.recipe.image} fill alt="recipe" />
+                  </div>
+                  <p className='font-medium text-center mt-2 text-xl'>{nutrition.recipe.label}</p>
+                  <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Calories : {nutrition.recipe.calories.toFixed(2)} kcal</p>
+                  <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Type : {nutrition.recipe.cuisineType}</p>
+                  <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Fat : {nutrition.recipe.totalNutrients.FAT.quantity.toFixed(2)}g</p>
+                  <p className='py-1 px-2 bg-green-600 rounded text-white my-1'>Sugar : {nutrition.recipe.totalNutrients.SUGAR.quantity.toFixed(2)}g</p>
+                </Link>
+              </div>
+            ))}
+
+          </div>
 
         )
 
       }
-
 
     </div>
 
