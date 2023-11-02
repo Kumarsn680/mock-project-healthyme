@@ -6,7 +6,7 @@ import './globals.css'
 import Navbar from '@/components/main/Navbar'
 import Home from '@/components/main/Home'
 import Footer from '@/components/main/Footer'
-
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,9 +25,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className='bg-black text-white'>
-          <Navbar />
-          {children}
-          <Footer />
+         <UserProvider>
+            <Navbar />
+            {children}
+            <Footer />
+         </UserProvider>
+            
+          
+          
+          
         </div>
         
       </body>

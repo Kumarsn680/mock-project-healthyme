@@ -24,7 +24,7 @@ const About = () => {
         </div>
       </div>
       <div>
-        <img src={"./assets/img/about.png"} alt="img" />
+        <img src={"/assets/img/about.png"} alt="img" />
       </div>
     </div>
   );
